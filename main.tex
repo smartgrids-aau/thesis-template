@@ -1,0 +1,134 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage[printonlyused]{acronym}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{siunitx}
+\lstdefinelanguage{NetLogo}{
+    basicstyle=\small,
+    breaklines=true,
+    breakatwhitespace=true,
+    alsoletter={-,?,.},
+    morekeywords=[1]{to, to-report, end, __includes, breed, globals, pseudopodia-own, foods-own, tubes-own, searchers-own, patches-own},
+    keywordstyle=[1]\color[rgb]{0.0, 0.66, 0.42},
+    morekeywords=[2]{ask, let, set, if, report, ifelse, clear-all, reset-ticks, die, create-link-with, face, fd, setxy, pen-down, hatch},
+    keywordstyle=[2]\color{blue},
+    morekeywords=[3]{patch, patches, xcor, ycor, of, random-float, with, any?, one-of, turtle-set, turtles-on, patch-ahead, pcolor, ranodm, not, can-move?, length, in-radius, item, neighbors, abs, pxcor, max-pxcor, pycor, max-pycor, size, myself, shabe, color, other, link-with, length, replace-item, map, list, and, or, not, n-of, min-pxcor, min-pycor, label-color, myself, sqrt, max, distance, insert-item, shape, hidden?, label},
+    keywordstyle=[3]\color[rgb]{0.74, 0.2, 0.64},
+    morekeywords=[4]{nobody},
+    keywordstyle=[4]\color[rgb]{0.86, 0.08, 0.24},
+    comment=[l]{\;},
+    commentstyle=\color[rgb]{0.75,0.75,0.75},
+    string=[d]{"},
+    stringstyle=\color{orange},
+    morekeywords=[5]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, true, false},
+    keywordstyle=[5]{\color{orange}},
+}
+\usepackage[acronym]{glossaries}
+\usepackage{afterpage} \newcommand\blankpage{%
+\null \thispagestyle{empty}%
+  \addtocounter{page}{-1}%
+    \newpage}
+\usepackage{listings} \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt} \lstset{language=Matlab}
+\sloppy
+\graphicspath{{images/}}
+
+\setlength{\textwidth}{15 true cm}
+\setlength{\textheight}{22 true cm}
+\setlength{\headheight}{15pt}
+\oddsidemargin  0.5 cm
+\evensidemargin 0.5 cm
+\topmargin      -1.0 cm
+
+\usepackage{url}
+\urlstyle{tt}
+\urldef{\test}{\url{http://de.wikipedia.org/wiki/Hilfe:TeX}}
+
+%\newcommand{\tanh}{\operatorname{tanh}}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\begin{document}
+
+\include{titlepage}
+\pagestyle{fancy}
+\pagenumbering{roman}
+\rfoot{\thepage}
+\cfoot{}
+\include{stmt}
+\include{erklaerung}
+\include{abstract}
+\include{abstract_DE}
+\include{acknowledgement}
+\include{acronyms}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+
+\pagestyle{plain}
+
+\chapter{Introduction}
+\label{sec:intro}
+\pagenumbering{arabic}
+\input{chapter1}
+
+\chapter{Topic}
+\label{sec:Slimemold}
+\input{chapter2}
+
+\chapter{Related Work}
+\label{sec:relatedwork}
+\input{chapter3}
+
+\chapter{Background and Methods}
+\label{sec:methods}
+\input{chapter4}
+
+\chapter{Implementation}
+\label{sec:implementation}
+\input{chapter5}
+
+\chapter{Experiments}
+\label{sec:experiments}
+\input{chapter6}
+
+\chapter{Conclusion}
+\label{sec:conclusion}
+\input{chapter7}
+
+\newpage
+
+\bibliographystyle{abbrv}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{bibfile}
+
+\newpage
+
+\appendix
+\addcontentsline{toc}{chapter}{APPENDICES}
+\chapter{NetLogo Code}
+\label{sec:appendix-netlogo}
+\input{appendix_a}
+
+
+%%
+%% Setup Guide
+%%
+%% This file should be edited by user
+%%
+
+\end{document} 

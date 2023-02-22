@@ -1,0 +1,612 @@
+
+\section{NetLogo Main}
+\section{SISMO NetLogo Main Function}
+\lstset{language=NetLogo}
+\begin{lstlisting}
+__includes["math_functions.nls" "setup.nls" "network-creation.nls" "a-star.nls"]
+;; 6 breeds needed in total, 3 for slime mold (plasmodia, pseudopodia, tubes), 1 for food source and 2 for A* algorithm ( networkpoints, searchers)
+breed [ plasmodia plasmodium ]
+breed [ pseudopodia pseudopodium ]
+;; The tubes are used to indicate the shortest path between the center and the feed source
+breed [ tubes tube ]
+;; foods represent the foodsources
+breed [ foods food ]
+;; the networkpoints and searchers are used for the a*algorithm
+breed [ networkpoints networkpoint ]
+breed [ searchers searcher ]
+
+globals [
+  ;; to control the form of the visible chemical field
+  scale-factor
+  ;; sets the probability for pseudopodia to hatch a new pseudopodium
+  hatch-probability
+]
+
+pseudopodia-own[
+  ;; stores the path in a list of lists with x y coordinates
+  path-list
+]
+
+foods-own [
+  ;; each food source should have an amount of nutrients
+  nutrient-value
+  ;; the chemical level describes the radius of the food source in which the pseudopodia can perceive the food
+  chemical-level
+  ;; for the visibility of the chemical field
+  intensity
+]
+
+tubes-own [
+  ;; stores the path in a list of lists with x y coordinates
+  path-list
+]
+
+searchers-own [
+  memory               ; Stores the path from the start node to here
+  cost                 ; Stores the real cost from the start
+  total-expected-cost  ; Stores the total exepcted cost from Start to the Goal that is being computed
+  localization         ; The searchers position
+  active?              ; is the searcher active? That is, we have reached the node, but we must consider it because its neighbors have not been explored
+]
+
+patches-own
+[
+  light-level ;; represents the light energy from all light sources
+]
+
+;; setup, defines where to place which component of the simulation at the beginning and initialize the global variables
+to setup
+  ;; clear-all calls the clearing functions like clear-globals etc.
+  clear-all
+  ;; set global variables
+  set hatch-probability 0.15
+  set scale-factor 10
+  ;; call make functions to create breeds
+  make-plasmodia
+  make-foods amount-foodsources
+  make-pseudopodia amount-pseudopodia
+  ;; next line is responsible for the visibility of the chemical concentration in the air
+  ask patches [ generate-field ]
+  ;; Resets the tick counter to zero, sets up all plots, then updates all plots
+  reset-ticks
+end
+
+to go
+  ifelse any? foods with [ nutrient-value > 0 ]
+  [
+    ask foods[
+      ;; There is a bug where food sources are created randomly and untraceable. This causes the pseudopodia to hang on this food source. Because it takes negative values and iterates forever. With this code this bug is fixed.
+      if nutrient-value < 0 [ die ]
+    ]
+    ask pseudopodia
+    [
+      let foodsource one-of foods-here
+      ifelse foodsource != nobody
+      [
+        let path-list-to-provide-to-tube path-list
+        ask foodsource
+        [
+          if show-nutrient-value [set label nutrient-value]
+          set nutrient-value nutrient-value - 1
+          if nutrient-value = 0 [
+            ;; create the network for the a star algorithm
+            create-pseudopodia-network turtle-set turtles-on patch-ahead 0
+            ;; get one pseudopodia on the foodsource to set the destination x,y coordinate for the a* algorithm
+            let one-pseudopodia-here one-of pseudopodia-here
+            run-a-star 0 0 ([xcor] of one-pseudopodia-here) ([ycor] of one-pseudopodia-here)
+            die
+          ]
+        ]
+        ;; calculates a random float number between 0 an 1
+        if random-float 1 <= hatch-probability
+        [
+          ;; create new child from pseudopodia, replace the zeros in the path-list to indicate, that it is a copy
+          hatch-pseudopodia 1
+          [
+            let new-path-list replace-zeros path-list
+            set path-list new-path-list
+          ]
+        ]
+      ]
+      [
+        ;; movment of the pseudopodia -> bounce of the wall, movement and sense chemotaxis from food
+        bounce
+        wiggle
+        look-for-food
+      ]
+    ]
+    ;; if the a * buildet a tube display it
+    ask tubes[
+      let i 0
+      while [i < length path-list - 1]
+      [
+        let x-1 [xcor] of item i path-list
+        let y-1 [ycor] of item i path-list
+        setxy x-1 y-1
+        let col [pcolor] of one-of neighbors
+        set i i + 1
+      ]
+      die
+    ]
+    tick
+  ]
+  [
+    stop
+  ]
+end
+
+to look-for-food
+  ;; find chemotaxis in the area of a food source
+  let foodsource one-of foods in-radius 5
+  if (foodsource != nobody)
+  [
+    ;; if there is chemotaxis ahead move towards the center
+    face foodsource
+  ]
+end
+
+to wiggle
+  rt random 40
+  lt random 40
+  if not can-move? 1 [ rt 180 ]
+  fd 1
+  ;; create a new entry for the path list (with x and y coordinates and 0 because the step from this pseudopodia is new)
+  let xycoordinate (list xcor ycor 0)
+  set path-list insert-item (length path-list) path-list xycoordinate
+end
+
+to bounce
+  ;; bounce off left and right walls
+  if abs pxcor >= max-pxcor - 1
+  [
+    ;; if "at the end of the world" face towards center and move one forward
+    face patch 0 0
+    ;; move one forward otherwise it will get stuck at the edge of the world
+    fd 1
+  ]
+  ;; bounce off top and bottom walls
+  if abs pycor >= max-pycor - 1
+  [
+    ;; if "at the end of the world" face towards center and move one forward
+    face patch 0 0
+    ;; move one forward otherwise it will get stuck at the edge of the world
+    fd 1
+  ]
+end
+\end{lstlisting}
+
+\section{SISMO NetLogo Setup}
+\begin{lstlisting}
+;;;;;;;;;;;;;;;;;;;;;;
+;; Setup Procedures ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+;; create slime population
+to make-plasmodia
+  create-plasmodia 1
+  [
+    set size 5
+    set shape "cloud"
+    set color yellow
+  ]
+end
+
+;; create pseudopodia
+to make-pseudopodia [number]
+  create-pseudopodia number
+  [
+    ;; for the pseudopias we need the same starting position as for the plasmodium. Because it spreads from the center
+    set color yellow
+    set shape "dot"
+    set path-list []
+    set path-list insert-item 0 path-list (list xcor ycor 0)
+    pen-down
+  ]
+end
+
+;; create food sources
+to make-foods [ number ]
+  create-foods number [
+    set shape "circle 2"
+    set color orange
+    set size 2
+    ;; create random coordinate https://ccl.northwestern.edu/netlogo/bind/primitive/random-float.html#:~:text=If%20you%20want%20to%20generate,4%20%2B%20random%2Dfloat%203%20.
+    ;; If you want to generate a random number between a custom range, you can use the following format: minnumber + (random-float (maxnumber - minnumber))
+    let randomxcoord (min-pxcor + 3) + (random-float ((max-pxcor - 3) - (min-pxcor + 3)))
+    let randomycoord (min-pycor + 3) + (random-float ((max-pycor - 3) - (min-pycor + 3)))
+    setxy randomxcoord randomycoord
+    set nutrient-value 50 + (random (150 - 50))
+    set chemical-level 23
+    set intensity 50
+    set label-color red
+  ]
+end
+
+;; patch procedure
+to generate-field
+  set light-level 0
+  ;; every patch needs to check in with every light
+  ask foods
+    [ set-field myself ]
+  set pcolor scale-color orange (sqrt light-level) 0.1 ( sqrt ( 20 * max [intensity] of foods ) )
+end
+
+;; do the calculations for the light on one patch due to one light
+;; which is proportional to the distance from the light squared.
+to set-field [p]  ;; turtle procedure; input p is a patch
+  let rsquared (distance p) ^ 2
+  let amount chemical-level * scale-factor
+  ifelse rsquared = 0
+    [ set amount amount * 1000 ]
+    [ set amount amount / rsquared ]
+  ask p [ set light-level light-level + amount ]
+end
+\end{lstlisting}
+
+\section{SISMO NetLogo Network Creation}
+\begin{lstlisting}
+to create-pseudopodia-network [breeds]
+  ;; extract the pseudopodia breed from the agentset to access the list of pseudopodias
+  let pseudos [pseudopodia] of breeds
+  ;; iterate through all pseudopodias to check if they have an intersection
+  let coordinates-list [path-list] of item 0 pseudos
+  if length coordinates-list = 1
+  [
+    ;; in case there is only one pseudopodium
+    set coordinates-list lput item 0 coordinates-list coordinates-list
+  ]
+  let i 0
+  while [ i < length coordinates-list - 1]
+  [
+    ;; get current coordinates from all coordinates
+    let coordinates item i coordinates-list
+    let j length coordinates - 1
+    ;; we itarte backwards, to insert the intersection on the right place, otherwise it would mess up the order of the sequence
+    while [ j > 0]
+    [
+      if item 2 item (j - 1) coordinates != 1 and item 2 item (j) coordinates != 1
+      [
+        let x-1 item 0 item (j - 1) coordinates
+        let x-2 item 0 item (j) coordinates
+        let y-1 item 1 item (j - 1) coordinates
+        let y-2 item 1 item (j) coordinates
+        ;; Compare current pseudopodia with itself (to also calculate the interfaces of itself) and compare current with other pseudopodias.
+        ;; One doesn't need to compare pseudopodia one with pseudopodia two and than again pseudopodia two with pseudopodia one.
+        ;; Therefore iterate only for example pseudopodia two with three, four five and so on
+        let k i       
+        while [ k < length coordinates-list - 1 ]
+        [
+          ;; get coordinates to compare from the list of all coordinates
+          let coordinates-to-compare item k coordinates-list
+          let l length coordinates-to-compare - 1
+          while [ l > 0]
+          [
+            ;; if the coordinates are a copy of a parent skip the comparison    
+            if item 2 item (l - 1) coordinates-to-compare != 1  and item 2 item (l - 0) coordinates-to-compare != 1
+            [
+              ;; Defining the comparison coordinates
+              let x-1-compare item 0 item (l - 1) coordinates-to-compare
+              let x-2-compare item 0 item (l) coordinates-to-compare 
+              let y-1-compare item 1 item (l - 1) coordinates-to-compare
+              let y-2-compare item 1 item (l) coordinates-to-compare
+              ;; If the intersection points are already connected, do not perform an intersection calculation.
+              if (x-1 != x-1-compare) and (y-1 != y-2-compare) and (x-2 != x-2-compare) and (y-2 != y-2-compare) and (y-2 != y-1-compare) and (x-2 != x-1-compare)
+              [
+                ;; calculate intersection points
+                let intersection-coordinate-result intersection-point x-1 x-2 x-1-compare x-2-compare y-1 y-2 y-1-compare y-2-compare
+                ifelse (intersection-coordinate-result != []) and (intersection-coordinate-result != (list 0 0 1)) and (not empty? intersection-coordinate-result)
+                [
+                  ;; if show-intersection-points is set, than mark the intersection points with an X
+                  if show-intersection-points
+                    [
+                      hatch 1
+                      [
+                        set shape "x"
+                        set color red
+                        set size 1
+                        set xcor item 0 intersection-coordinate-result
+                        set ycor item 1 intersection-coordinate-result
+                      ]
+                  ]        
+                  ;; The intersection point is set at the correct position in the coordinates list and the network around the intersection point is built.
+                  ;; The network points are created only if there doesn't exist a network point on this coordinate.                  
+                  set coordinates insert-item (j) coordinates intersection-coordinate-result
+                  set coordinates-to-compare insert-item (l) coordinates-to-compare intersection-coordinate-result
+                  ;; check if there are existing network points, if not create some and link them, if they exist create the missing one and connect them
+                  let first-point one-of networkpoints with [xcor = x-1 and ycor = y-1]
+                  let intersec-point one-of networkpoints with [xcor = item 0 intersection-coordinate-result and ycor = item 1 intersection-coordinate-result]
+                  if(first-point = nobody)
+                  [
+                    hatch-networkpoints 1
+                    [
+                      setxy x-1 y-1
+                      set hidden? not show-network
+                      set shape "circle"
+                      set size .5
+                      set color blue
+                      set label ""
+                      set first-point self
+                    ]
+                  ]
+                  if(intersec-point = nobody)
+                  [
+                    hatch-networkpoints 1
+                    [
+                      setxy item 0 intersection-coordinate-result item 1 intersection-coordinate-result
+                      set hidden? not show-network
+                      set shape "circle"
+                      set size .5
+                      set color blue
+                      set label ""
+                      set intersec-point self
+                    ]
+                  ] 
+                  ask first-point [create-link-with intersec-point]                  
+                  
+                  let second-point one-of networkpoints with [xcor = x-2 and ycor = y-2]
+                  if(second-point = nobody)
+                  [
+                    hatch-networkpoints 1
+                    [
+                      setxy x-2 y-2
+                      set hidden? not show-network
+                      set shape "circle"
+                      set size .5
+                      set color blue
+                      set label ""
+                      set second-point self
+                    ]
+                  ]                  
+                  ask intersec-point [create-link-with second-point]
+                  
+                  let first-compare-point one-of networkpoints with [xcor = x-1-compare and ycor = y-1-compare]
+                  if(first-compare-point = nobody)
+                  [
+                    hatch-networkpoints 1
+                    [
+                      setxy x-1-compare y-1-compare
+                      set hidden? not show-network
+                      set shape "circle"
+                      set size .5
+                      set color blue
+                      set label ""
+                      set first-compare-point self
+                    ]
+                  ]
+                  ask first-compare-point [create-link-with intersec-point]
+                  
+                  let second-compare-point one-of networkpoints with [xcor = x-2-compare and ycor = y-2-compare]
+                  if(second-compare-point = nobody)
+                  [
+                    hatch-networkpoints 1
+                    [
+                      setxy x-2-compare y-2-compare
+                      set hidden? not show-network
+                      set shape "circle"
+                      set size .5
+                      set color blue
+                      set label ""
+                      set second-compare-point self
+                    ]
+                  ]
+                  ask intersec-point [create-link-with second-compare-point]                  
+                ]
+                [
+                  ;; if there are no intersection points just build the network without them for the provided coordinates
+                  build-network x-1 y-1 x-2 y-2
+                ]
+                ;; Links are created between the network points and these are then colored yellow to match the rest of the simulation.
+                ask links [set color yellow]              
+              ]              
+            ]
+            set l l - 1
+          ]
+          set k k + 1
+        ]
+      ]
+      set j j - 1
+    ]
+    set i i + 1
+  ]
+end
+
+to build-network [x-1 y-1 x-2 y-2]
+  ;; check if there are existing network points, if not create some and link them, if they exist create the missing one and connect them
+  let first-point one-of networkpoints with [xcor = x-1 and ycor = y-1]
+  let second-point one-of networkpoints with [xcor = x-2 and ycor = y-2]
+  if(first-point = nobody)
+  [
+    hatch-networkpoints 1
+    [
+      setxy x-1 y-1
+      set hidden? not show-network
+      set shape "circle"
+      set size .5
+      set color blue
+      set label ""
+      set first-point self
+    ]
+  ]
+  if(second-point = nobody)
+  [
+    hatch-networkpoints 1
+    [
+      setxy x-2 y-2
+      set hidden? not show-network
+      set shape "circle"
+      set size .5
+      set color blue
+      set label ""
+      set second-point self
+    ]
+  ]
+  ask first-point [create-link-with second-point]
+end
+\end{lstlisting}
+
+\section{SISMO NetLogo Math Functions}
+\begin{lstlisting}
+;; calculation of the intersection points (line-line intersection)
+to-report intersection-point [x1 x2 x3 x4 y1 y2 y3 y4]
+  let point []
+  let t-numerator (x1 - x3) * (y3 - y4) - (y1 - y3) * ( x3 - x4)
+  let t-denominator (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+  let u-numerator (x1 - x3) * (y1 - y2) - (y1 - y3) * ( x1 - x2)
+  let u-denominator (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+  if (t-denominator = 0) or (u-denominator = 0) [
+    report point
+  ]
+  let t t-numerator / t-denominator
+  let u u-numerator / u-denominator
+  ;; there is an intersection if 0.0 <= t <= 1.0 and if 0.0 <= u <= 1.0
+  if (t >= 0) and (t <= 1) and (u >= 0) and (u <= 1)
+  [
+    set point (list (x1 + t * (x2 - x1)) (y1 + t * (y2 - y1)) 0)
+  ]
+  report point
+end
+
+;; next two functions are for replacing the zeros in the coordinate list of a pseudopodium.
+to-report replace-zero [the-list]
+  if item 2 the-list = 0
+    [ report replace-item 2 the-list 1 ]
+  report the-list
+end
+
+to-report replace-zeros [lists]
+  report map [ i -> replace-zero i] lists
+end
+\end{lstlisting}
+
+\section{SISMO NetLogo A* Algorithm}
+\begin{lstlisting}
+; Auxiliary procedure to test the A* algorithm between two random nodes of the network
+to run-a-star [x-start y-start x-end y-end]
+  ask networkpoints [set color blue set size .5]
+  ask links with [color = yellow][set color grey set thickness 0]
+  let start one-of networkpoints with [xcor = x-start and ycor = y-start]
+  ask start [set color green set size 1]
+  let goal one-of networkpoints with [xcor = x-end and ycor = y-end]
+  ask goal [set color green set size 1]
+  ; We compute the path with A*
+  let path (A* start goal)
+  ; if any, we highlight it
+  if path != false
+  [
+    highlight-path path
+    let tube-path []
+    foreach path [ x -> set tube-path lput x tube-path]
+    ;; hatch tube to make it visible
+    hatch-tubes 1
+    [
+      set path-list tube-path
+      set color yellow
+      set size 2
+      setxy 0 0
+      set pen-size 8
+      pen-down
+    ]
+  ]  
+end
+
+; Searcher report to compute the heuristic for this searcher: in this case, one good option
+; is the euclidean distance from the location of the node and the goal we want to reach
+to-report heuristic [#Goal]
+  report [distance [localization] of myself] of #Goal
+end
+
+; The A* Algorithm es very similar to the previous one (patches). It is supposed that the
+; network is accesible by the algorithm, so we don't need to pass it as input. Therefore,
+; it will receive only the initial and final nodes.
+to-report A* [#Start #Goal]
+  ; Create a searcher for the Start node
+  ask #Start
+  [
+    hatch-searchers 1
+    [
+      set shape "circle"
+      set color red
+      set localization myself
+      set memory (list localization) ; the partial path will have only this node at the beginning
+      set cost 0
+      set total-expected-cost cost + heuristic #Goal ; Compute the expected cost
+      set active? true ; It is active, because we didn't calculate its neighbors yet
+    ]
+  ]
+  ; The main loop will run while the Goal has not been reached and we have active searchers to
+  ; inspect. Tha means that a path connecting start and goal is still possible
+  while [not any? searchers with [localization = #Goal] and any? searchers with [active?]]
+  [
+    ; From the active searchers we take one of the minimal expected cost to the goal
+    ask min-one-of (searchers with [active?]) [total-expected-cost]
+    [
+      ; We will explore its neighbors, so we deactivated it
+      set active? false
+      ; Store this searcher and its localization in temporal variables to facilitate their use
+      let this-searcher self
+      let Lorig localization
+      ; For every neighbor node of this location
+      ask ([link-neighbors] of Lorig)
+      [
+        ; Take the link that connect it to the Location of the searcher
+        let connection link-with Lorig
+        ; The cost to reach the neighbor in this path is the previous cost plus the lenght of the link
+        let c ([cost] of this-searcher) + [link-length] of connection
+        ; Maybe in this node there are other searchers (comming from other nodes).
+        ; If this new path is better than the other, then we put a new searcher and remove the old ones
+        if not any? searchers-in-loc with [cost < c]
+        [
+          hatch-searchers 1
+          [
+            set shape "circle"
+            set color red
+            set localization myself ; the location of the new searcher is this neighbor node
+            set memory lput localization ([memory] of this-searcher) ; the path is built from the
+                                                                     ; original searcher
+            set cost c   ; real cost to reach this node
+            set total-expected-cost cost + heuristic #Goal ; expected cost to reach the goal with this path
+            set active? true  ; it is active to be explored
+            ask other searchers-in-loc [die] ; Remove other seacrhers in this node
+          ]
+        ]
+      ]
+    ]
+  ]
+  ; When the loop has finished, we have two options: no path, or a searcher has reached the goal
+  ; By default the return will be false (no path)
+  let res false
+  ; But if it is the second option
+  if any? searchers with [localization = #Goal]
+  [
+    ; we will return the path located in the memory of the searcher that reached the goal
+    let lucky-searcher one-of searchers with [localization = #Goal]
+    set res [memory] of lucky-searcher
+  ]
+  ; Remove the searchers
+  ask searchers [die]
+  ; and report the result
+  report res
+end
+
+; Auxiliary procedure the highlight the path when it is found. It makes use of reduce procedure with
+; highlight report
+to highlight-path [path]
+  let reduced reduce highlight path
+end
+
+; Auxiliaty report to highlight the path with a reduce method. It recieives two nodes, as a secondary
+; effect it will highlight the link between them, and will return the second node.
+to-report highlight [x y]
+  ask x
+  [
+    ask link-with y [set color yellow set thickness .4]
+  ]
+  report y
+end
+
+; Auxiliary nodes report to return the searchers located in it (it is like a version of turtles-here,
+; but fot he network)
+to-report searchers-in-loc
+  report searchers with [localization = myself]
+end
+\end{lstlisting}
