@@ -7,8 +7,8 @@ Check your text for [common bugs in writing](https://www.cs.columbia.edu/%7Ehgs/
 # LaTeX Guidelines
 
 LaTeX IDEs:
-- [LaTeX Online Editor]( https://www.overleaf.com/)
-- [LaTeX Offline Editor](https://www.texstudio.org/)
+- [Overleaf - LaTeX Online Editor]( https://www.overleaf.com/)
+- [TeXstudio - LaTeX Offline Editor](https://www.texstudio.org/)
 
 
 [LaTeX Documentation](https://www.overleaf.com/learn)
