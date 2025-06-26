@@ -35,6 +35,28 @@
     morekeywords=[5]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, true, false},
     keywordstyle=[5]{\color{orange}},
 }
+\lstdefinestyle{jsonstyle}{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=flexible,
+  frame=single,
+  language={}
+}
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    breakatwhitespace=false,
+    numbers=left,
+    numberstyle=\tiny,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    showstringspaces=false,
+    frame=single
+}
+
 \usepackage[acronym]{glossaries}
 \usepackage{afterpage} \newcommand\blankpage{%
 \null \thispagestyle{empty}%
@@ -127,7 +149,6 @@
 \chapter{NetLogo Code}
 \label{sec:appendix-netlogo}
 \input{appendix_a}
-
 
 %%
 %% Setup Guide

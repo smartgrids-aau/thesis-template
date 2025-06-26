@@ -10,44 +10,46 @@ A level-1 auxiliary file: acknowledgement.aux
 A level-1 auxiliary file: acronyms.aux
 The style file: abbrv.bst
 Database file #1: bibfile.bib
-You've used 10 entries,
+Warning--empty journal in guhr-EtAl:2021:fullstop
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            562 strings with 5701 characters,
-and the built_in function-call counts, 3483 in all, are:
-= -- 291
-> -- 266
-< -- 1
-+ -- 108
-- -- 96
-* -- 251
-:= -- 618
-add.period$ -- 27
-call.type$ -- 10
-change.case$ -- 74
+            619 strings with 8239 characters,
+and the built_in function-call counts, 7867 in all, are:
+= -- 679
+> -- 607
+< -- 3
++ -- 246
+- -- 220
+* -- 573
+:= -- 1378
+add.period$ -- 60
+call.type$ -- 21
+change.case$ -- 163
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 103
-empty$ -- 229
-format.name$ -- 96
-if$ -- 691
+cite$ -- 22
+duplicate$ -- 260
+empty$ -- 475
+format.name$ -- 220
+if$ -- 1568
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 10
-newline$ -- 50
-num.names$ -- 20
-pop$ -- 111
+int.to.str$ -- 21
+missing$ -- 23
+newline$ -- 105
+num.names$ -- 42
+pop$ -- 216
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 148
 quote$ -- 0
-skip$ -- 74
+skip$ -- 204
 stack$ -- 0
-substring$ -- 86
-swap$ -- 15
-text.length$ -- 1
+substring$ -- 192
+swap$ -- 61
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
-warning$ -- 0
-while$ -- 24
-width$ -- 12
-write$ -- 98
+type$ -- 72
+warning$ -- 1
+while$ -- 49
+width$ -- 23
+write$ -- 211
+(There was 1 warning)

@@ -1,0 +1,17 @@
+# Fdb version 4
+["pdflatex"] 1747658709.32303 "/home/rover/thesis/Thesis_paper/chapter3.tex" "chapter3.pdf" "chapter3" 1747658709.84165 2
+  "/etc/texmf/web2c/texmf.cnf" 1746711002.15732 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/rover/thesis/Thesis_paper/chapter3.tex" 1747658708.17469 11668 b047157a783265b7e5a512f5c7522a03 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746711138 8214376 33214a6d356c7484ac05154ca06759d3 ""
+  "chapter3.aux" 1747658709.31136 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "chapter3.tex" 1747658708.17469 11668 b047157a783265b7e5a512f5c7522a03 ""
+  (generated)
+  "chapter3.aux"
+  "chapter3.log"
+  "chapter3.pdf"
+  (rewritten before read)

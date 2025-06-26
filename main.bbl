@@ -1,5 +1,30 @@
 \begin{thebibliography}{10}
 
+\bibitem{2024arXiv240201687A}
+V.~{Agarwal}, M.~{Krishan Garg}, S.~{Dharmavaram}, and D.~{Kumar}.
+\newblock {``Which LLM should I use?'': Evaluating LLMs for tasks performed by Undergraduate Computer Science Students}.
+\newblock {\em arXiv e-prints}, page arXiv:2402.01687, Jan. 2024.
+
+\bibitem{bie2024renaissance}
+F.~Bie, Y.~Yang, Z.~Zhou, A.~Ghanem, M.~Zhang, Z.~Yao, X.~Wu, C.~Holmes, P.~Golnari, D.~A. Clifton, et~al.
+\newblock Renaissance: A survey into ai text-to-image generation in the era of large model.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 2024.
+
+\bibitem{Bredin23}
+H.~Bredin.
+\newblock {pyannote.audio 2.1 speaker diarization pipeline: principle, benchmark, and recipe}.
+\newblock In {\em Proc. INTERSPEECH 2023}, 2023.
+
+\bibitem{chang2024survey}
+Y.~Chang, X.~Wang, J.~Wang, Y.~Wu, L.~Yang, K.~Zhu, H.~Chen, X.~Yi, C.~Wang, Y.~Wang, et~al.
+\newblock A survey on evaluation of large language models.
+\newblock {\em ACM transactions on intelligent systems and technology}, 15(3):1--45, 2024.
+
+\bibitem{dang2022prompt}
+H.~Dang, L.~Mecke, F.~Lehmann, S.~Goller, and D.~Buschek.
+\newblock How to prompt? opportunities and challenges of zero-and few-shot learning for human-ai interaction in creative applications of generative models.
+\newblock {\em arXiv preprint arXiv:2209.01390}, 2022.
+
 \bibitem{denning1989computing}
 P.~J. Denning, D.~E. Comer, D.~Gries, M.~C. Mulder, A.~Tucker, A.~J. Turner, and P.~R. Young.
 \newblock Computing as a discipline.
@@ -20,10 +45,35 @@ R.~Gallotta, G.~Todd, M.~Zammit, S.~Earle, A.~Liapis, J.~Togelius, and G.~N. Yan
 \newblock Large language models and games: A survey and roadmap.
 \newblock {\em IEEE Transactions on Games}, pages 1--18, 2024.
 
+\bibitem{guhr-EtAl:2021:fullstop}
+O.~Guhr, A.-K. Schumann, F.~Bahrmann, and H.~J. Böhme.
+\newblock Fullstop: Multilingual deep models for punctuation prediction.
+\newblock June 2021.
+
+\bibitem{hadi2023survey}
+M.~U. Hadi, R.~Qureshi, A.~Shah, M.~Irfan, A.~Zafar, M.~B. Shaikh, N.~Akhtar, J.~Wu, S.~Mirjalili, et~al.
+\newblock A survey on large language models: Applications, challenges, limitations, and practical usage.
+\newblock {\em Authorea Preprints}, 2023.
+
+\bibitem{GigaTown}
+F.~Kouno.
+\newblock {\em GigaTown: A Guide to MANGA Iconography}.
+\newblock UDON Entertainment Inc., 2018.
+
+\bibitem{mccloud1993understanding}
+S.~McCloud and M.~Martin.
+\newblock {\em Understanding comics: The invisible art}, volume 106.
+\newblock Kitchen sink press Northampton, MA, 1993.
+
 \bibitem{AdventureZone2018}
 C.~McElroy, G.~McElroy, J.~McElroy, T.~McElroy, and C.~Pietsch.
 \newblock {\em The Adventure Zone: Here There Be Gerblins}.
 \newblock First Second, 2018.
+
+\bibitem{Plaquet23}
+A.~Plaquet and H.~Bredin.
+\newblock {Powerset multi-class cross entropy loss for neural speaker diarization}.
+\newblock In {\em Proc. INTERSPEECH 2023}, 2023.
 
 \bibitem{CRFOX}
 e.~p. Prynoski, Chris.
@@ -46,5 +96,10 @@ H.~Touvron, T.~Lavril, G.~Izacard, X.~Martinet, M.-A. Lachaux, T.~Lacroix, B.~Ro
 {Wizards of the Coast}.
 \newblock {\em Dungeons \& Dragons: 5th Edition}.
 \newblock Wizards of the Coast, 2014.
+
+\bibitem{zhao2023survey}
+W.~X. Zhao, K.~Zhou, J.~Li, T.~Tang, X.~Wang, Y.~Hou, Y.~Min, B.~Zhang, J.~Zhang, Z.~Dong, et~al.
+\newblock A survey of large language models.
+\newblock {\em arXiv preprint arXiv:2303.18223}, 1(2), 2023.
 
 \end{thebibliography}

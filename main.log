@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.8)  15 MAY 2025 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.8)  18 JUN 2025 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -537,7 +537,7 @@ Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 62.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count355
@@ -545,24 +545,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux (./titlepage.aux) (./stmt.aux) (./erklaerung.aux) (./abstract.aux) (./abstract_DE.aux) (./acknowledgement.aux) (./acronyms.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -617,7 +617,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 62.
+Package hyperref Info: Link coloring OFF on input line 84.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -635,11 +635,11 @@ Package caption Info: End \AtBeginDocument code.
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 62.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 84.
 \openout2 = `titlepage.aux'.
 
  (./titlepage.tex
-<images/uniklulogo.png, id=220, 757.83125pt x 234.8775pt>
+<images/uniklulogo.png, id=244, 757.83125pt x 234.8775pt>
 File: images/uniklulogo.png Graphic file (type png)
 <use images/uniklulogo.png>
 Package pdftex.def Info: images/uniklulogo.png  used on input line 26.
@@ -693,12 +693,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--19
 \openout2 = `abstract.aux'.
 
  (./abstract.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 6--71
+Underfull \hbox (badness 10000) in paragraph at lines 6--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--71
+Underfull \hbox (badness 10000) in paragraph at lines 6--93
 
  []
 
@@ -741,7 +741,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 pdfTeX warning (ext4): destination with the same identifier (name{page.v}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \include{acronyms}
+l.96 \include{acronyms}
                         [5
 
 ] (./main.toc [6
@@ -787,7 +787,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 [3
 
 ]
-<images/Physarum_polycephalum_(3).jpg, id=396, 928.46875pt x 1284.8pt>
+<images/Physarum_polycephalum_(3).jpg, id=436, 928.46875pt x 1284.8pt>
 File: images/Physarum_polycephalum_(3).jpg Graphic file (type jpg)
 <use images/Physarum_polycephalum_(3).jpg>
 Package pdftex.def Info: images/Physarum_polycephalum_(3).jpg  used on input line 36.
@@ -803,42 +803,103 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
  []
 
 [4{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5 <./images/Physarum_polycephalum_(3).jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 49--96
+Underfull \hbox (badness 10000) in paragraph at lines 49--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--96
+Underfull \hbox (badness 10000) in paragraph at lines 49--118
 
  []
 
 [6] [7]
 Chapter 4.
 (./chapter3.tex
-<images/SequentalArtUnderstandingComicPage5.png, id=423, 575.90157pt x 794.2172pt>
+<images/SequentalArtUnderstandingComicPage5.png, id=463, 575.90157pt x 794.2172pt>
 File: images/SequentalArtUnderstandingComicPage5.png Graphic file (type png)
 <use images/SequentalArtUnderstandingComicPage5.png>
 Package pdftex.def Info: images/SequentalArtUnderstandingComicPage5.png  used on input line 23.
 (pdftex.def)             Requested size: 259.1533pt x 357.39444pt.
  [8
 
-] [9 <./images/SequentalArtUnderstandingComicPage5.png>]) [10]
+] [9 <./images/SequentalArtUnderstandingComicPage5.png>]
+<images/IconographyGigaTown.png, id=480, 525.6438pt x 244.7544pt>
+File: images/IconographyGigaTown.png Graphic file (type png)
+<use images/IconographyGigaTown.png>
+Package pdftex.def Info: images/IconographyGigaTown.png  used on input line 34.
+(pdftex.def)             Requested size: 236.53752pt x 110.13844pt.
+ [10 <./images/IconographyGigaTown.png>] [11]
+Underfull \hbox (badness 2401) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Multimodal (text, im-age,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Occasional hal-lu-ci-na-tions;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Safety-focused; han-dles
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+\T1/cmr/m/n/12 long con-texts; nat-u-ral
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Resource-heavy; lim-ited
+ []
+
+
+Underfull \hbox (badness 3503) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Requires tech-ni-cal ex-per-
+ []
+
+
+Underfull \hbox (badness 3701) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Efficient Mix-ture of Ex-
+ []
+
+
+Underfull \hbox (badness 4595) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Up-to-date info re-trieval;
+ []
+
+
+Underfull \hbox (badness 4686) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Limited mul-ti-modal sup-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Open-source; ef-fi-cient
+ []
+
+
+Underfull \hbox (badness 4686) in paragraph at lines 129--129
+[]|\T1/cmr/m/n/12 Limited mul-ti-modal sup-
+ []
+
+[12]) [13]
 Chapter 5.
 (./chapter4.tex
-<images/netlogo.JPG, id=438, 517.935pt x 523.9575pt>
+<images/netlogo.JPG, id=522, 517.935pt x 523.9575pt>
 File: images/netlogo.JPG Graphic file (type jpg)
 <use images/netlogo.JPG>
 Package pdftex.def Info: images/netlogo.JPG  used on input line 11.
 (pdftex.def)             Requested size: 426.79134pt x 431.77458pt.
- [11
+ [14
 
-] [12 <./images/netlogo.JPG>] [13]
-<images/a_star_start.jpg, id=466, 476.53032pt x 338.01282pt>
+] [15 <./images/netlogo.JPG>] [16]
+<images/a_star_start.jpg, id=548, 476.53032pt x 338.01282pt>
 File: images/a_star_start.jpg Graphic file (type jpg)
 <use images/a_star_start.jpg>
 Package pdftex.def Info: images/a_star_start.jpg  used on input line 75.
 (pdftex.def)             Requested size: 202.01735pt x 202.02013pt.
-<images/a_star_end.jpg, id=467, 478.78876pt x 334.24875pt>
+<images/a_star_end.jpg, id=549, 478.78876pt x 334.24875pt>
 File: images/a_star_end.jpg Graphic file (type jpg)
 <use images/a_star_end.jpg>
 Package pdftex.def Info: images/a_star_end.jpg  used on input line 81.
@@ -848,34 +909,49 @@ Overfull \hbox (2.61047pt too wide) in paragraph at lines 74--86
 []$[]$  $[]$ 
  []
 
-) [14] [15 <./images/a_star_start.jpg> <./images/a_star_end.jpg>]
+) [17] [18 <./images/a_star_start.jpg> <./images/a_star_end.jpg>]
 Chapter 6.
-(./chapter5.tex) [16
+(./chapter5.tex) [19
 
 ]
 Chapter 7.
-(./chapter6.tex [17
+(./chapter6.tex
+<images/mvpTTRPGtoComic.png, id=568, 2065.7175pt x 3464.945pt>
+File: images/mvpTTRPGtoComic.png Graphic file (type png)
+<use images/mvpTTRPGtoComic.png>
+Package pdftex.def Info: images/mvpTTRPGtoComic.png  used on input line 9.
+(pdftex.def)             Requested size: 413.13618pt x 692.97675pt.
 
-]) [18]
-Chapter 8.
-(./chapter7.tex [19
 
-]) [20] (./main.bbl
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 39.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+LaTeX Warning: Float too large for page by 91.51611pt on input line 12.
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 17.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 17.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)) [21
+) [20
 
-]
+] [21 <./images/mvpTTRPGtoComic.png>] [22] [23] [24]
+File: images/mvpTTRPGtoComic.png Graphic file (type png)
+<use images/mvpTTRPGtoComic.png>
+Package pdftex.def Info: images/mvpTTRPGtoComic.png  used on input line 94.
+(pdftex.def)             Requested size: 206.58385pt x 346.5148pt.
+ [25] [26] [27] [28]) [29]
+Chapter 8.
+(./chapter7.tex [30
+
+]) [31] (./main.bbl [32
+
+]) [33]
 Appendix A.
-(./appendix_a.tex [22
+(./appendix_a.tex [34
 
-] [23] [24] [25] [26]
+] [35] [36] [37] [38]
 Overfull \hbox (546.99617pt too wide) in paragraph at lines 213--214
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
+[39] [40] [41] [42] [43] [44] [45] [46] [47] [48]
 Overfull \hbox (37.03683pt too wide) in paragraph at lines 565--566
 [][][][][][][][][][] 
  []
@@ -890,27 +966,27 @@ Overfull \hbox (96.23358pt too wide) in paragraph at lines 565--566
 [][][][][]  
  []
 
-[37]) [38] (./main.aux (./titlepage.aux) (./stmt.aux) (./erklaerung.aux) (./abstract.aux) (./abstract_DE.aux) (./acknowledgement.aux) (./acronyms.aux))
+[49]) [50] (./main.aux (./titlepage.aux) (./stmt.aux) (./erklaerung.aux) (./abstract.aux) (./abstract_DE.aux) (./acknowledgement.aux) (./acronyms.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DAC3E27DEF0616E9E7702DDDB1743A03;7929.
+(rerunfilecheck)             Checksum: 1E3A61BC006600F8073D571670602978;8990.
  ) 
 Here is how much of TeX's memory you used:
- 24179 strings out of 474222
- 434907 string characters out of 5748734
- 2071975 words of memory out of 5000000
- 45298 multiletter control sequences out of 15000+600000
- 578362 words of font info for 82 fonts, out of 8000000 for 9000
+ 24451 strings out of 474222
+ 438631 string characters out of 5748734
+ 2217975 words of memory out of 5000000
+ 45475 multiletter control sequences out of 15000+600000
+ 578676 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,20n,93p,2401b,2551s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (52 pages, 1697850 bytes).
+ 94i,20n,93p,2401b,2595s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (64 pages, 13495497 bytes).
 PDF statistics:
- 1442 PDF objects out of 1728 (max. 8388607)
- 1318 compressed objects within 14 object streams
- 734 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1655 PDF objects out of 1728 (max. 8388607)
+ 1510 compressed objects within 16 object streams
+ 828 named destinations out of 1000 (max. 500000)
+ 521 words of extra memory for PDF output out of 10000 (max. 10000000)
 
