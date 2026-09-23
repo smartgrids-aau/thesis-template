@@ -1,3 +1,26 @@
+# Front Matter Setup
+
+Before writing any content, open **`thesis-config.tex`** and fill in:
+- Your name, thesis title, degree, programme and (optional) branch of study
+- The thesis type (`Bachelor`, `Master`, or `PhD`) -- this automatically switches the
+  title page between a single **Supervisor** (Bachelor/PhD) and an **Evaluator** +
+  optional **Co-Evaluator** (Master's convention at AAU)
+- Supervisor/Evaluator (and Co-Evaluator) name and institute
+- Place and date
+
+You should not need to edit `titlepage.tex`, `erklaerung.tex` (Affidavit) or
+`ai_declaration.tex` directly -- they all pull their author name, place and date from
+`thesis-config.tex`.
+
+Two more front-matter files to check before submission:
+- **`erklaerung.tex`** -- the Affidavit. The text is the current standard AAU wording;
+  only the signature line at the bottom is auto-filled.
+- **`ai_declaration.tex`** -- the Declaration of AI Use, now included by default
+  (`main.tex` adds it right after the Affidavit). Replace the example paragraph with
+  an accurate description of how you used generative AI, or with the "no AI used"
+  alternative provided in a comment in that file if you used none. Do not delete the
+  page -- examiners expect to see it either way.
+
 # Writing Guidelines
 
 Check your text for [common bugs in writing](https://www.cs.columbia.edu/%7Ehgs/etc/writing-bugs.html)

@@ -15,6 +15,7 @@
 \usepackage{subfig}
 \usepackage{listings}
 \usepackage{siunitx}
+\usepackage{ifthen}
 \lstdefinelanguage{NetLogo}{
     basicstyle=\small,
     breaklines=true,
@@ -61,13 +62,15 @@
 \clubpenalty=10000
 \begin{document}
 
+\input{thesis-config}
+
 \include{titlepage}
 \pagestyle{fancy}
 \pagenumbering{roman}
 \rfoot{\thepage}
 \cfoot{}
-\include{stmt}
 \include{erklaerung}
+\include{ai_declaration}
 \include{abstract}
 \include{abstract_DE}
 \include{acknowledgement}
